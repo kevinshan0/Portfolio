@@ -1,13 +1,14 @@
 <script lang="ts">
     import { onMount } from "svelte";
 
-    let allTextDivs: NodeListOf<HTMLElement>;
+    let allTextDivs: Array<HTMLElement>;
     let infoAnchor: HTMLAnchorElement;
     let contactAnchor: HTMLAnchorElement;
 
     async function onMountAnimation(): Promise<void> {
-        allTextDivs = document.querySelectorAll(".text");
-        let allTextArray = Array.from(allTextDivs).map((element) => element.innerText);
+        allTextDivs = Array.from(document.querySelectorAll(".text"));
+        allTextDivs.push(allTextDivs.splice(3, 1)[0]);
+        let allTextArray = allTextDivs.map(element => element.innerText);
         
         allTextDivs.forEach(element => element.innerText = "");
 
@@ -17,7 +18,8 @@
 
         function loadText(element: HTMLElement, index: number): Promise<void> {
             return new Promise((resolve) => {
-                setTimeout(resolve, 120);
+                if (index != allTextDivs.length - 2) setTimeout(resolve, 120);
+                else setTimeout(resolve, 420);
 
                 let innerTextArray = allTextArray[index];
                 let replacement = "";
@@ -136,9 +138,11 @@
 
 <style>
     .container {
-        width: 400px;
+        width: 380px;
         height: fit-content;
-        display: block;
+        display: flex;
+        flex-direction: column;
+        gap: 0.1em;
     }
 
     .inline {
