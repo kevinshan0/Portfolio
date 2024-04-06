@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { base } from '$app/paths';
+
     let instagramAnchor: HTMLAnchorElement;
     let githubAnchor: HTMLAnchorElement;
     let homeAnchor: HTMLAnchorElement;
@@ -96,7 +98,7 @@
 <div class="container">
     <a on:mouseenter={hoverAction} bind:this={instagramAnchor} href="https://www.instagram.com/kevinshan0/?hl=en" class="big">INSTAGRAM</a>
     <a on:mouseenter={hoverAction} bind:this={githubAnchor} href="https://github.com/kshan2024" class="big">GITHUB</a>
-    <a on:mouseenter={hoverAction} bind:this={homeAnchor} href="/" class="small">HOME</a>
+    <a on:mouseenter={hoverAction} bind:this={homeAnchor} href="{base}/" class="small">HOME</a>
 </div>
 
 <style>

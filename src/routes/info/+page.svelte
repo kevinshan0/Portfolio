@@ -1,5 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
+    import { base } from '$app/paths';
 
     let homeAnchor: HTMLAnchorElement;
     let allTextDivs: Array<HTMLElement>;
@@ -85,7 +86,7 @@
         <div class="line"><span class="line-section">ASPIRING WEB DEV</span><span class="line-section">ELOPER AND DESIGNER</span></div>
         <div class="line"><span class="line-section">(AS YOU CAN TELL).</span></div>
     </div>
-    <a on:mouseenter={hoverAction} bind:this={homeAnchor} href="/" class="small">HOME</a>
+    <a on:mouseenter={hoverAction} bind:this={homeAnchor} href="{base}/" class="small">HOME</a>
 </div>
 
 <style>

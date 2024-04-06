@@ -1,5 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
+    import { base } from '$app/paths';
 
     let allTextDivs: Array<HTMLElement>;
     let infoAnchor: HTMLAnchorElement;
@@ -134,8 +135,8 @@
     </div>
     <div class="inline space"></div>
     <div class="inline">
-        <div><a on:mouseenter={hoverAction} bind:this={infoAnchor} href="/info" class="text">INFO</a></div>
-        <div><a on:mouseenter={hoverAction} bind:this={contactAnchor} href="/contact" class="text">CONTACT</a></div>
+        <div><a on:mouseenter={hoverAction} bind:this={infoAnchor} href="{base}/info" class="text">INFO</a></div>
+        <div><a on:mouseenter={hoverAction} bind:this={contactAnchor} href="{base}/contact" class="text">CONTACT</a></div>
     </div>
 </div>
 
