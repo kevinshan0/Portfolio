@@ -61,10 +61,10 @@
                         changing = "ATNTC";
                         break;
                     case 3:
-                        changing = "ATTC";
+                        changing = "ATCT";
                         break;
                     case 4:
-                        changing = "CAT";
+                        changing = "TCA";
                         break;
                     case 5:
                         changing = "TC";
@@ -143,6 +143,16 @@
         display: flex;
         flex-direction: column;
         gap: 0.1em;
+
+        position: fixed;
+        inset: 0px;
+        margin: auto;
+        z-index: 0;
+
+        animation: shrink linear forwards, grow linear forwards;
+        animation-timeline: scroll(), scroll();
+        animation-range-start: 0%, 90%;
+        animation-range-end: 10%, 100%;
     }
 
     .inline {
@@ -157,5 +167,19 @@
     a {
         text-decoration: none;
         color: black;
+    }
+
+    @keyframes shrink {
+        to {
+            scale: 0.7;
+            opacity: 0.6;
+        }
+    }
+
+    @keyframes grow {
+        to {
+            scale: 1;
+            opacity: 1;
+        }
     }
 </style>
