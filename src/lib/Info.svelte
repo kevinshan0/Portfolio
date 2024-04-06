@@ -9,6 +9,7 @@
         allTextDivs = Array.from(document.querySelectorAll(".text"));
         allTextDivs.push(allTextDivs.splice(3, 1)[0]);
         let allTextArray = allTextDivs.map(element => element.innerText);
+        console.log(allTextArray)
         
         allTextDivs.forEach(element => element.innerText = "");
 
@@ -18,19 +19,21 @@
 
         function loadText(element: HTMLElement, index: number): Promise<void> {
             return new Promise((resolve) => {
+                // set timeout between beginning of each div's animation
                 if (index != allTextDivs.length - 2) setTimeout(resolve, 120);
                 else setTimeout(resolve, 420);
 
-                let innerTextArray = allTextArray[index];
+                let text = allTextArray[index];
                 let replacement = "";
                 let counter = 0;
 
                 function shuffle(): void {
                     element.innerText = replacement;
-                    replacement += innerTextArray[counter];
+
+                    replacement += text.charAt(counter);
                     counter++;
 
-                    if (counter == innerTextArray.length + 1) {
+                    if (counter == text.length + 1) {
                         clearInterval(interval);
                     }
                 }
@@ -155,6 +158,10 @@
         animation-range-end: 10%, 100%;
     }
 
+    .text {
+        font-size: var(--font-small);
+    }
+
     .inline {
         display: flex;
         justify-content: space-between;
@@ -162,11 +169,6 @@
 
     .space {
         height: 1em;
-    }
-
-    a {
-        text-decoration: none;
-        color: black;
     }
 
     @keyframes shrink {

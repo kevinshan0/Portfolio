@@ -18,58 +18,44 @@
     ]
 </script>
 
-<div class="space big"></div>
+<div class="space"></div>
 
 <div class="showcase-container">
     {#each projects as project}
-        <div class="project">
-            <h1>{project.text}</h1>
-            <div class="space small"></div>
-            <div class="img-wrapper"><img src={project.src} alt={project.alt}></div>
+        <h1>{project.text}</h1>
+        <div class="img-wrapper">
+            <img src={project.src} alt={project.alt}>
         </div>
     {/each}
 </div>
 
-<div class="space big"></div>
+<div class="space"></div>
 
 <svelte:window on:scroll={() => {}} />
 
 <style>
     .showcase-container {
+        position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
         row-gap: 30vh;
-
-        position: relative;
         z-index: 1;
     }
 
-    .project {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
     .img-wrapper {
-        min-height: 80vh;
-        min-width: 50vw;
         height: 80vh;
         width: 50vw;
     }
 
-    .space.big {
+    .space {
         height: 200vh;
-    }
-
-    .space.small {
-        height: 30vh;
     }
 
     h1 {
         font-family: Arial, Helvetica, sans-serif;
         font-weight: 600;
-        font-size: 10em;
+        font-size: var(--font-big);
         text-align: center;
     }
 

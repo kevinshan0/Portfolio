@@ -39,6 +39,16 @@ table {
 /* global variables */
 :root {
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 1.5em;
 	user-select: none;
+
+	--font-big: 15em;
+	--font-medium: 3.5em;
+	--font-small: 1.5em;
+
+	--gap: 5em;
+}
+
+a {
+	text-decoration: none;
+	color: black;
 }
